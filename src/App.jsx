@@ -5,9 +5,19 @@ import PageLayout from "./Layouts/PageLayout/PageLayout";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase/firebase";
+import { Spinner } from "@chakra-ui/react"; 
 
 function App() {
-  const [authUser] = useAuthState(auth)
+  const [authUser, loading, error] = useAuthState(auth);
+
+  if (loading) {
+    return <Spinner size="xl" />; 
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
   return (
     <>
       <PageLayout>
