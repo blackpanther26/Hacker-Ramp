@@ -6,9 +6,21 @@ import {
   Text,
   Button,
   Box,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { IoIosSettings } from "react-icons/io";
+import useUserProfileStore from "../../store/userProfileStore";
+import useAuthStore from "../../store/authStore";
+import EditProfile from "./EditProfile";
+
 const ProfileHeader = () => {
+  const { userProfile } = useUserProfileStore();
+  const authUser = useAuthStore((state) => state.user);
+  const vistingOwnProfileAndAuth =
+    authUser && authUser.username === userProfile.username;
+  const vistingAnotherProfileAndAuth =
+    authUser && authUser.username !== userProfile.username;
+    const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <Flex
       gap={{ base: 4, sm: 24 }}
@@ -21,11 +33,7 @@ const ProfileHeader = () => {
         justifySelf={"center"}
         mx={"auto"}
       >
-        <Avatar
-          name="priyanshu.chahal_"
-          src="/profilepic.png"
-          alt="blackpanther26"
-        />
+        <Avatar src={userProfile.profilePicURL} alt={userProfile.username} />
       </AvatarGroup>
       <VStack alignItems={"start"} gap={2} mx={"auto"} flex={1}>
         <Flex
@@ -39,52 +47,71 @@ const ProfileHeader = () => {
             fontWeight={"medium"}
             cursor={"pointer"}
           >
-            priyanshu.chahal_
+            {userProfile.username}
           </Text>
-          <Flex gap={2} alignItems={"center"} justifyContent={"center"}>
-            <Button bg={"gray.700"} size={{ base: "xs", md: "sm" }}>
-              Edit profile
-            </Button>
-            <Button bg={"gray.700"} size={{ base: "xs", md: "sm" }}>
-              View archive
-            </Button>
-            <IoIosSettings size={30} />
-          </Flex>
+          {vistingOwnProfileAndAuth && (
+            <Flex gap={2} alignItems={"center"} justifyContent={"center"}>
+              <Button bg={"gray.700"} size={{ base: "xs", md: "sm" }} onClick={onOpen}>
+                Edit profile
+              </Button>
+              <Button bg={"gray.700"} size={{ base: "xs", md: "sm" }}>
+                View archive
+              </Button>
+              <IoIosSettings size={30} />
+            </Flex>
+          )}
+          {vistingAnotherProfileAndAuth && (
+            <Flex gap={2} alignItems={"center"} justifyContent={"center"}>
+              <Button
+                bg={"gray.700"}
+                size={{ base: "xs", md: "sm" }}
+                onClick={() => {
+                  // Navigate to user's profile
+                }}
+              >
+                Follow
+              </Button>
+            </Flex>
+          )}
         </Flex>
         <Flex alignItems={"center"} gap={{ base: 2, sm: 8 }} mt={6}>
           <Text>
             <Text as="span" fontWeight={"bold"} mr={1}>
-              4
+              {userProfile.posts.length}
             </Text>
-            Posts
+            posts
           </Text>
           <Text>
             <Text as="span" fontWeight={"bold"} mr={1}>
-              672
+              {userProfile.followers.length}
             </Text>
             followers
           </Text>
           <Text>
             <Text as="span" fontWeight={"bold"} mr={1}>
-              644
+              {userProfile.following.length}
             </Text>
             following
           </Text>
         </Flex>
-        <Flex alignItems={"center"} gap={4} mt={4} direction={"column"} >
+        <Flex alignItems={"center"} gap={4} mt={4} direction={"column"}>
           <Box>
             <Text fontSize={"sm"} fontWeight={"bold"}>
-              Priyanshu Chahal
+              {userProfile.fullname}
             </Text>
-            <Text fontSize={"sm"} p={1} lineHeight={1} fontWeight={"medium"} px={0}>
-              CRCS'21
-            </Text>
-            <Text fontSize={"sm"} lineHeight={1} fontWeight={"medium"}>
-              IITR'28 MNC
+            <Text
+              fontSize={"sm"}
+              p={1}
+              lineHeight={1}
+              fontWeight={"medium"}
+              px={0}
+            >
+              {userProfile.bio}
             </Text>
           </Box>
         </Flex>
       </VStack>
+      {isOpen && <EditProfile isOpen={isOpen} onClose={onClose}/>}
     </Flex>
   );
 };

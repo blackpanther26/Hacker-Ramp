@@ -47,7 +47,7 @@ const ProfileTabs = () => {
         <MdOutlinePersonPin />
         </Box>
         <Text fontSize={12} display={{ base: "none", sm: "block" }}>
-          Saved
+          Tagged
         </Text>
       </Flex>
     </Flex>
