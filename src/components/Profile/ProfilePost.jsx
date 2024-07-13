@@ -27,6 +27,7 @@ import { deleteObject, ref } from "firebase/storage";
 import { firestore, storage } from "../../firebase/firebase";
 import { arrayRemove, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import usePostStore from "../../store/postStore";
+import Caption from "../Comment/Caption";
 
 const ProfilePost = ({ post }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -35,7 +36,7 @@ const ProfilePost = ({ post }) => {
   const showToast = useShowToast();
   const [isDeleting, setIsDeleting] = useState(false);
   const deletePost = usePostStore((state) => state.deletePost);
-  const deletePostFromProfile = useUserProfileStore(
+  const decrementPostCount = useUserProfileStore(
     (state) => state.deletePost
   );
 
@@ -50,7 +51,7 @@ const ProfilePost = ({ post }) => {
       await deleteDoc(doc(firestore, "posts", post.id));
       await updateDoc(userRef, { posts: arrayRemove(post.id) });
       deletePost(post.id);
-      deletePostFromProfile(post.id);
+      decrementPostCount(post.id);
       showToast("Success", "Post deleted successfully", "success");
     } catch (error) {
       showToast("Error", error.message, "error");
@@ -167,15 +168,13 @@ const ProfilePost = ({ post }) => {
                   maxHeight={"500px"}
                   overflowY={"auto"}
                 >
-                  <Comment
-                    createdAt="2d ago"
-                    username="john_doe"
-                    profilePic="https://randomuser.me/api/portraits/men/2.jpg"
-                    text={"Amazing!"}
-                  />
+                  {post.caption && <Caption post={post}/>}
+                  {post.comments.map((comment) =>
+                  <Comment key={comment.id} comment={comment}/>
+                  )}
                 </VStack>
                 <Divider bg={"gray.700"} marginTop={"auto"} />
-                <PostFooter isProfilePage={true} />
+                <PostFooter isProfilePage={true} post={post} />
               </Flex>
             </Flex>
           </ModalBody>
