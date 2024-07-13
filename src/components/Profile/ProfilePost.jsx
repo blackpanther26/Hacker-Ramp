@@ -47,11 +47,11 @@ const ProfilePost = ({ img }) => {
           justifyContent={"center"}
         >
           <Flex alignItems={"center"} justifyContent={"center"} gap={10}>
-            <Flex>
+            <Flex gap={1} alignItems={"center"}>
               <AiFillHeart size={20} />
               <Text fontWeight={"bold"}>442</Text>
             </Flex>
-            <Flex>
+            <Flex gap={1} alignItems={"center"}>
               <FaComment size={20} />
               <Text fontWeight={"bold"}>10</Text>
             </Flex>

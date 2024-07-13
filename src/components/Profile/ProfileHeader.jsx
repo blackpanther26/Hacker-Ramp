@@ -12,15 +12,19 @@ import { IoIosSettings } from "react-icons/io";
 import useUserProfileStore from "../../store/userProfileStore";
 import useAuthStore from "../../store/authStore";
 import EditProfile from "./EditProfile";
+import useFollowUser from "../../hooks/useFollowUser";
 
 const ProfileHeader = () => {
   const { userProfile } = useUserProfileStore();
   const authUser = useAuthStore((state) => state.user);
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isUpdating, isFollowing, handleFollowUser}=useFollowUser(userProfile?.uid)
+
   const vistingOwnProfileAndAuth =
     authUser && authUser.username === userProfile.username;
   const vistingAnotherProfileAndAuth =
     authUser && authUser.username !== userProfile.username;
-    const { isOpen, onOpen, onClose } = useDisclosure()
+    
   return (
     <Flex
       gap={{ base: 4, sm: 24 }}
@@ -65,11 +69,10 @@ const ProfileHeader = () => {
               <Button
                 bg={"gray.700"}
                 size={{ base: "xs", md: "sm" }}
-                onClick={() => {
-                  // Navigate to user's profile
-                }}
+                onClick={handleFollowUser}
+                isLoading={isUpdating}
               >
-                Follow
+                {isFollowing? "Unfollow":"Follow"}
               </Button>
             </Flex>
           )}
