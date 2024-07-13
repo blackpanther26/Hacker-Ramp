@@ -1,0 +1,88 @@
+/* src/components/ShopWBuddy.css */
+.shopwbuddy-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(180deg, #FFEFEF, #FFF4F4);
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo img {
+    height: 40px;
+  }
+  
+  .nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .profile a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .content {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .content h1 {
+    font-size: 2.5rem;
+    color: #FF5A5F;
+    margin: 20px 0;
+  }
+  
+  .content p {
+    font-size: 1.2rem;
+    color: #686973;
+    margin-bottom: 30px;
+  }
+  
+  .image-container {
+    margin-bottom: 30px;
+  }
+  
+  .image-container img {
+    width: 200px;
+    height: auto;
+  }
+  
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 10px 0;
+    font-size: 1rem;
+    color: white;
+    background-color: #FF5A5F;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .create-group {
+    background-color: #FF5A5F;
+  }
+  
+  .join-group {
+    background-color: #FFC0CB;
+  }
+  

@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import AuthPage from "./pages/AuthPage/AuthPage";
+import GroupPage from "./pages/GroupPage/GroupPage";
 import PageLayout from "./Layouts/PageLayout/PageLayout";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -22,6 +23,10 @@ function App() {
             element={!authUser ? <AuthPage /> : <Navigate to="/" />}
           />
           <Route path="/:username" element={<ProfilePage />} />
+          <Route
+            path="/:username/group"
+            element={authUser ? <GroupPage /> : <Navigate to="/" />}
+          />
         </Routes>
       </PageLayout>
     </>
