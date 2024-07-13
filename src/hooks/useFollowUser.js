@@ -27,10 +27,12 @@ const useFollowUser = (userId) => {
           ...user,
           following: user.following.filter((uid) => uid !== userId),
         });
-        setUserProfile({
-          ...userProfile,
-          followers: userProfile.followers.filter((uid) => uid !== user.uid),
-        });
+        if (userProfile) {
+          setUserProfile({
+            ...userProfile,
+            followers: userProfile.followers.filter((uid) => uid !== user.uid),
+          });
+        }
         localStorage.setItem(
           "userInfo",
           JSON.stringify({
@@ -41,14 +43,17 @@ const useFollowUser = (userId) => {
         setIsFollowing(false);
       } else {
         setUser({ ...user, following: [...user.following, userId] });
-        setUserProfile({
-          ...userProfile,
-          followers: [...userProfile.followers, user.uid],
-        });
+        if (userProfile) {
+          setUserProfile({
+            ...userProfile,
+            followers: [...userProfile.followers, user.uid],
+          });
+        }
         localStorage.setItem(
           "userInfo",
-          JSON.stringify({...user, following: [...user.following, userId] }));
-          setIsFollowing(true);
+          JSON.stringify({ ...user, following: [...user.following, userId] })
+        );
+        setIsFollowing(true);
       }
     } catch (error) {
       showToast("Error", error.message, "error");
