@@ -1,0 +1,293 @@
+/* src/components/ShopWBuddyWithFriends.css */
+.shopwbuddy-page {
+    font-family: Arial, sans-serif;
+  }
+  
+  .shopwbuddy-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #fff;
+  }
+  
+  .myntra-logo {
+    width: 50px;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+  }
+  
+  .user-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .user-actions input {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .user-actions a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .shopwbuddy-main {
+    display: flex;
+    padding: 20px;
+    background-color: #fff5f5;
+  }
+  
+  .shopwbuddy-content {
+    flex: 2;
+    padding: 20px;
+  }
+  
+  .shopwbuddy-content h1 {
+    color: #ff3e6c;
+  }
+  
+  .shopwbuddy-content p {
+    color: #686973;
+  }
+  
+  .group-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .group-form label {
+    font-weight: bold;
+  }
+  
+  .group-form input {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .group-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff3e6c;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .friends-image {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .recommended-friends {
+    flex: 1;
+    background-color: #e6f7ff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .recommended-friends h2 {
+    margin-bottom: 20px;
+  }
+  
+  .friend {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .friend img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .friend-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .invite-button,
+  .invited-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .invite-button {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .invited-button {
+    background-color: #ccc;
+    color: #000;
+    cursor: not-allowed;
+  }
+  
+  .see-all {
+    display: block;
+    margin-top: 20px;
+    text-align: right;
+    text-decoration: none;
+    color: #007bff;
+  }
+/* src/components/ShopWBuddyWithFriends.css */
+.shopwbuddy-page {
+    font-family: Arial, sans-serif;
+  }
+  
+  .shopwbuddy-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #fff;
+  }
+  
+  .myntra-logo {
+    width: 50px;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+  }
+  
+  .user-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .user-actions input {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .user-actions a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .shopwbuddy-main {
+    display: flex;
+    padding: 20px;
+    background-color: #fff5f5;
+  }
+  
+  .shopwbuddy-content {
+    flex: 2;
+    padding: 20px;
+  }
+  
+  .shopwbuddy-content h1 {
+    color: #ff3e6c;
+  }
+  
+  .shopwbuddy-content p {
+    color: #686973;
+  }
+  
+  .group-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .group-form label {
+    font-weight: bold;
+  }
+  
+  .group-form input {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .group-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff3e6c;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .friends-image {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .recommended-friends {
+    flex: 1;
+    background-color: #e6f7ff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .recommended-friends h2 {
+    margin-bottom: 20px;
+  }
+  
+  .friend {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .friend img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .friend-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .invite-button,
+  .invited-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .invite-button {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .invited-button {
+    background-color: #ccc;
+    color: #000;
+    cursor: not-allowed;
+  }
+  
+  .see-all {
+    display: block;
+    margin-top: 20px;
+    text-align: right;
+    text-decoration: none;
+    color: #007bff;
+  }
+    

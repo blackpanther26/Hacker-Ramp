@@ -3,6 +3,7 @@ import React from 'react';
 import './css/GroupPage.css';
 
 const ShopWBuddy = () => {
+
   return (
     <div className="shopwbuddy-container">
       <header className="header">
@@ -21,7 +22,8 @@ const ShopWBuddy = () => {
           <a href="/profile">Profile</a>
           <a href="/wishlist">Wishlist</a>
           <a href="/bag">Bag</a>
-          <a href="/group">Group</a>
+          <a href="/${username}/group">Group</a>
+           {/* yahan kuchh krna pdega */}
         </div>
       </header>
       <div className="content">
