@@ -4,13 +4,13 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDXJg4tlmUfKv5GQLrnGmvfx7hB4YiwS5Q",
-  authDomain: "insta-clone-37ad8.firebaseapp.com",
-  projectId: "insta-clone-37ad8",
-  storageBucket: "insta-clone-37ad8.appspot.com",
-  messagingSenderId: "402171763985",
-  appId: "1:402171763985:web:347fec9d8f15c375f280b0",
-  measurementId: "G-CSV7191YXV",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);
